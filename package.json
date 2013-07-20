@@ -1,0 +1,28 @@
+{
+  "name": "citationstyles",
+  "version": "0.0.0",
+  "description": "csl collection from citationstyles.org",
+  "main": "csl.js",
+  "scripts": {
+    "test": "node test/test.js"
+  },
+  "author": "Max F. Albrecht",
+  "license": "http://creativecommons.org/licenses/by-sa/3.0/",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/papermill/node-citationstyles.git"
+  },
+  "keywords": [
+    "csl",
+    "citation",
+    "citationstyles.org"
+  ],
+  "bugs": {
+    "url": "https://github.com/papermill/node-citationstyles/issues"
+  },
+  "dependencies": {
+    "graceful-fs": "~2.0.0",
+    "fs-extra": "~0.6.3",
+    "async": "~0.2.9"
+  }
+}
