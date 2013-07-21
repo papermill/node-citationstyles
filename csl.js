@@ -5,7 +5,7 @@ var fs = require('fs-extra'),
 module.exports = csl = {
   
   "config": {
-    "mypath": module.id,
+    "mypath": module.filename,
     "ext": ".csl",
     "source": {
       "independent": "./citationstyles-org",
