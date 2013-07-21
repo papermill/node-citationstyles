@@ -1,0 +1,8 @@
+# git stuff
+.gitignore
+.gitmodules
+
+# upstream repo stuff
+citationstyles-org/**
+!citationstyles-org/**.csl
+
