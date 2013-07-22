@@ -6,3 +6,5 @@
 citationstyles-org/**
 !citationstyles-org/**.csl
 
+# my stuff
+make-metadata.js

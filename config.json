@@ -1,0 +1,8 @@
+{
+  "ext": ".csl",
+  "source": {
+    "independent": "./citationstyles-org",
+    "dependent": "./citationstyles-org/dependent"
+  }
+}
+
