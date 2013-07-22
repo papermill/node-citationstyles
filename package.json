@@ -1,6 +1,6 @@
 {
   "name": "citationstyles",
-  "version": "0.0.0",
+  "version": "0.0.1-93f9de7",
   "description": "csl collection from citationstyles.org",
   "main": "csl.js",
   "scripts": {
