@@ -2,37 +2,48 @@ var csl = require('../csl'),
     vows = require('vows'),
     assert = require('assert'),
     fs = require('fs-extra'),
+    f = require('underscore'),
     eyes = require('eyes'),
     crypto = require('crypto');
 
 var config = {
   "stylecount": 842,
-  "hash": "0e963260c8056d089a7002a9b70f3c4330bd5edb"
+  "hash": "3937e656c9f3128f7673ffddc933f5fd30100248"
 };
 
 // Create a Test Suite
-vows.describe('Citation Styles').addBatch({
+vows.describe('Citation Styles API').addBatch({
   
-  'API': {
+  '*csl.list()*': {
     
-      '*csl.list()* styles-list': {
+      'returns a styles-list': {
         topic: function () {
           csl.list(this.callback); // lists the built-in styles (async)
         },
         
         'should have known sum of styles': function (styles) {
-          // console.log(styles);
+          // console.log(f.first(styles, 10));
+          // console.log(f.last(styles, 10));
           assert.strictEqual(styles.length, config.stylecount);
         },
         
         'should have known hash': function (styles) {
+          // filter the path first, since it is unique for each install
+          var data = [];
+          f.each(styles, function(item){ 
+            if (item.path) {
+              var obj = f.clone(item);
+              delete obj.path
+            }
+            data.push(obj);
+          });
           var shasum = crypto.createHash('sha1')
-          shasum.update(JSON.stringify(styles));
+          shasum.update(JSON.stringify(data));
           var hash = shasum.digest('hex');
           assert.strictEqual(hash, config.hash);
         },
         
-        'some item in the middle': {
+        'where some item in the middle': {
           topic: function (styles) {
             var middle = parseInt(styles.length/2);
             return styles[middle];

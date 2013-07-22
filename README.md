@@ -2,6 +2,8 @@
 
 # citationstyles
 
+![build status](https://api.travis-ci.org/papermill/node-citationstyles.png?branch=master)
+
 This packages the `CSL` collection from <http://citationstyles.org> for usage with `node.js`.
 
 # API/Usage

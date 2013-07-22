@@ -31,6 +31,9 @@
     "async": "~0.2.9"
   },
   "devDependencies": {
-    "vows": "0.7.x"
+    "vows": "0.7.x",
+    "eyes": "~0.1.8",
+    "assert": "~0.4.9",
+    "underscore": "~1.5.1"
   }
 }
