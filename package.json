@@ -18,6 +18,7 @@
     "url": "https://github.com/papermill/node-citationstyles.git"
   },
   "keywords": [
+    "papermill",
     "csl",
     "citation",
     "citationstyles.org"

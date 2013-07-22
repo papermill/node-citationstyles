@@ -57,7 +57,7 @@ vows.describe('Citation Styles API').addBatch({
             assert.ok(item.path);
           },
           
-          'should have `path` pointing to existing file': {
+          'should have `path` pointing to a file': {
             topic: function (item) {
               fs.exists(item.path, this.callback);
             },
