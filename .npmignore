@@ -3,8 +3,11 @@
 .gitmodules
 
 # upstream repo stuff
-citationstyles-org/**
-!citationstyles-org/**.csl
+citationstyles-org/*
+!citationstyles-org/*.csl
+!citationstyles-org/dependent/*.csl
 
 # my stuff
+Makefile
 make-metadata.js
+.travis.yml
