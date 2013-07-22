@@ -4,7 +4,7 @@
   "description": "csl collection from citationstyles.org",
   "main": "csl.js",
   "scripts": {
-    "test": "cd ./test && node test.js"
+    "test": "cd ./test && vows test --spec"
   },
   "author": "Max F. Albrecht",
   "licenses": [
