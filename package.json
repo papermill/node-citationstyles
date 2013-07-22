@@ -29,5 +29,8 @@
     "graceful-fs": "~2.0.0",
     "fs-extra": "~0.6.3",
     "async": "~0.2.9"
-  }
+  },
+  "devDependencies": {
+      "vows": "0.7.x"
+    }
 }
