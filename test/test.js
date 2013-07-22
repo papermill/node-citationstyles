@@ -6,49 +6,47 @@ var csl = require('../csl'),
     crypto = require('crypto');
 
 var config = {
-  "stylecount": 1684,
-  "hash": "998d969063e04c25f13c6a6aede4c37119125672"
+  "stylecount": 842,
+  "hash": "0e963260c8056d089a7002a9b70f3c4330bd5edb"
 };
 
 // Create a Test Suite
 vows.describe('Citation Styles').addBatch({
-  
-    '*csl.list()*': {
+  'API': {
+      '*csl.list()* styles-list': {
         topic: function () {
-          csl.list(this.callback);
+          csl.list(this.callback); // lists the built-in styles (async)
         },
-        'lists the built-in styles (async)': {
-          'number of styles is correct': function (styles) {
-            console.log(styles);
-            assert.strictEqual(styles.independent.length, config.stylecount);
+        'should match known sum of styles': function (styles) {
+          // console.log(styles);
+          assert.strictEqual(styles.length, config.stylecount);
+        },
+        'should match known hash': function (styles) {
+          var shasum = crypto.createHash('sha1')
+          shasum.update(JSON.stringify(styles));
+          var hash = shasum.digest('hex');
+          assert.strictEqual(hash, config.hash);
+        },
+        'some item in the middle of the list': {
+          topic: function (styles) {
+            var middle = parseInt(styles.length/2);
+            return styles[middle];
           },
-          'hash is correct': function (styles) {
-            var shasum = crypto.createHash('sha1');
-            shasum.update(styles.independent.toString());
-            var hash = shasum.digest('hex');
-            assert.strictEqual(hash, config.hash);
+          'is not empty': function (item) {
+            assert.ok(item);
           },
-          
-          'some item in the middle of the list': {
-            topic: function (styles) {
-              var middle = parseInt(styles.independent.length/2);
-              return styles.independent[1683];
+          'has a `path` property': function (item) {
+            assert.ok(item.path);
+          },
+          'has `path` which points to a file': {
+            topic: function (item) {
+              fs.exists(item.path, this.callback);
             },
-            'is not empty': function (item) {
-              assert.ok(item);
-            },
-            'it has a `path` property': function (item) {
-              assert.ok(item.path);
-            },
-            'the `path` points to a file': {
-              topic: function (item) {
-                fs.existsSync(item.path, this.callback);
-              },
-              'the file actually exists': function (exists) {
-                assert.equal(exists, true);
-              }
+            'which actually exists': function (exists) {
+              assert.equal(exists, true);
             }
           }
         }
+      }
     }
 }).run(); // Run it
