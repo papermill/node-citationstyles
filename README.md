@@ -6,6 +6,8 @@
 
 This packages the `CSL` collection from <http://citationstyles.org> for usage with `node.js`.
 
+---
+
 # API/Usage
 
 ## `list(callback)`
