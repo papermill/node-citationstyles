@@ -7,7 +7,7 @@ var csl = require('../csl'),
     crypto = require('crypto');
 
 var config = {
-  "stylecount": 842,
+  "stylecount": 857,
   "hash": "3937e656c9f3128f7673ffddc933f5fd30100248"
 };
 
